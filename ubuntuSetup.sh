@@ -20,7 +20,7 @@ apt install numix-icon-theme
 apt install numix-icon-theme-circle
 
 # Install KVM
-apt install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils virt-viewer
+apt install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils virt-viewer virt-manager
 
 # Configuration
 git config --global credential.helper 'cache --timeout=600'
