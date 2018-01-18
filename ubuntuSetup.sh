@@ -24,4 +24,4 @@ apt install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils virt-viewer
 
 # Configuration
 git config --global credential.helper 'cache --timeout=600'
-adduser `id -un` libvirtd
+adduser `id -un` libvirt
