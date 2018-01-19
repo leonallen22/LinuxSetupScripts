@@ -1,11 +1,12 @@
 #!/bin/bash
 #
+# My typical setup steps for a fresh Ubuntu install (run with sudo)
+#
 # TODO:
 #   - Add dropbox install
 #   - Add flash install :(
 
 # Add Repos
-sudo su
 add-repository ppa:numix/ppa
 add-apt-repository ppa:webupd8team/atom
 apt update
