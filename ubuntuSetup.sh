@@ -12,7 +12,7 @@ apt update
 apt upgrade -y
 
 # Install misc packages
-apt install yes git keepassx vim wireshark htop icdiff pandoc imagemagick conky-all
+apt install yes git ddd keepassx vim wireshark htop icdiff pandoc imagemagick conky-all
 echo "alias top='htop' diff='icdiff'" >> ~/.bashrc
 
 # Install bat (cat replacement)
