@@ -13,12 +13,12 @@ apt upgrade -y
 
 # Install misc packages
 apt install yes git ddd keepassx vim wireshark htop icdiff pandoc imagemagick conky-all
-echo "alias top='htop' diff='icdiff'" >> ~/.bashrc
+echo "alias top='htop' diff='icdiff'" >> ~/.bash_aliases
 
 # Install bat (cat replacement)
 wget https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb
 dpkg -i bat_0.6.0_amd64.deb
-echo "alias cat='bat'" >> ~/.bashrc
+echo "alias cat='bat'" >> ~/.bash_aliases
 
 # Install fzf (CLI fuzzy finder, CTRL-R)
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -26,7 +26,7 @@ yes | ~/.fzf/install
 
 # Install fd (find replacement)
 apt install fd
-echo "alias find='echo you should use fd instead'" >> ~/.bashrc
+echo "alias find='echo you should use fd instead'" >> ~/.bash_aliases
 
 # Install ncdu (du replacement)
 apt install ncdu
@@ -34,11 +34,11 @@ alias du='ncdu'
 
 # Install ack & ag (grep replacement)
 apt install ack silversearcher-ag
-echo "alias grep='echo you should use ack or ag instead'" >> ~/.bashrc
+echo "alias grep='echo you should use ack or ag instead'" >> ~/.bash_aliases
 
 # Install entr (watch replacement)
 apt install entr
-echo "alias watch='echo you should use entr instead'" >> ~/.bashrc
+echo "alias watch='echo you should use entr instead'" >> ~/.bash_aliases
 
 # Install flash
 sudo apt install flashplugin-installer
