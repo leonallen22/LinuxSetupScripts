@@ -15,6 +15,10 @@ apt upgrade -y
 apt install yes git ddd keepassx vim wireshark htop icdiff pandoc imagemagick conky-all
 echo "alias top='htop' diff='icdiff'" >> ~/.bash_aliases
 
+# Set default editor
+echo "export EDITOR=vim" >> ~/.bashrc
+echo "export VISUAL=vim" >> ~/.bashrc
+
 # Install bat (cat replacement)
 wget https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb
 dpkg -i bat_0.6.0_amd64.deb
