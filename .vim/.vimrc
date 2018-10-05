@@ -8,17 +8,23 @@ set autoindent
 set hidden
 set history=100
 
-set nu
+set cursorline
 set showmatch
+set showmode
 set hlsearch
+set foldenable
 set foldmethod=indent
 set foldlevel=50
 
 syntax on
 filetype indent on
 
+nnoremap j gj
+nnoremap k gk
 nnoremap <space> za
 nnoremap <Leader><Leader> :e#<CR>
+
+colorscheme sublimemonokai
 
 autocmd BufWritePost Jenkinsfile execute '!validate-jenkinsfile <afile> || true'
 autocmd BufWritePost *pipeline.groovy execute '!validate-jenkinsfile <afile> || true'
