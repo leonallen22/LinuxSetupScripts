@@ -32,11 +32,14 @@ echo "export VISUAL=vim" >> ~/.bashrc
 cp -r .vim ~/
 ln -s ~/.vim/.vimrc ~/.vimrc
 
-# Install bat (cat replacement)
-wget https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb
-dpkg -i bat_0.6.0_amd64.deb
-if [ $(grep -ic "alias cat='bat'" ~/.bash_aliases) -eq 0 ]; then
-  echo "alias cat='bat'" >> ~/.bash_aliases
+# Install bat (cat replacement) if not installed
+dpkg -s "bat" &> /dev/null
+if [ $? -gt 0 ]; then
+  wget https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb
+  dpkg -i bat_0.6.0_amd64.deb
+  if [ $(grep -ic "alias cat='bat'" ~/.bash_aliases) -eq 0 ]; then
+    echo "alias cat='bat'" >> ~/.bash_aliases
+  fi
 fi
 
 # Install fzf (CLI fuzzy finder, CTRL-R)
