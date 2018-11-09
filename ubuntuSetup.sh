@@ -12,7 +12,7 @@ apt update
 apt upgrade -y
 
 # Install misc packages
-apt install yes git ddd keepassx vim wireshark htop icdiff pandoc imagemagick conky-all openconnect
+apt install yes git ddd keepassx vim tmux xfce4-terminal wireshark htop icdiff pandoc imagemagick conky-all openconnect
 
 # Set aliases for those, if needed
 touch ~/.bash_aliases
