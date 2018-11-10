@@ -4,15 +4,15 @@
 #
 # TODO:
 #   - Add pCloud install
-
-# Add Repos
+# 
+# vim theme: https://github.com/ErichDonGubler/vim-sublime-monokai
 
 # Update & upgrade
-apt update
-apt upgrade -y
+sudo apt update
+sudo apt upgrade -y
 
 # Install misc packages
-apt install yes git ddd keepassx vim tmux xfce4-terminal wireshark htop icdiff pandoc imagemagick conky-all openconnect
+sudo apt install yes git ddd keepassx vim tmux xfce4-terminal wireshark htop icdiff pandoc imagemagick conky-all openconnect
 
 # Set aliases for those, if needed
 touch ~/.bash_aliases
@@ -36,7 +36,7 @@ ln -s ~/.vim/.vimrc ~/.vimrc
 dpkg -s "bat" &> /dev/null
 if [ $? -gt 0 ]; then
   wget https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb
-  dpkg -i bat_0.6.0_amd64.deb
+  sudo dpkg -i bat_0.6.0_amd64.deb
   if [ $(grep -ic "alias cat='bat'" ~/.bash_aliases) -eq 0 ]; then
     echo "alias cat='bat'" >> ~/.bash_aliases
   fi
@@ -47,25 +47,25 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 yes | ~/.fzf/install
 
 # Install fd (find replacement)
-apt install fd
+sudo apt install fd
 if [ $(grep -ic "alias find='echo you should use fd instead'" ~/.bash_aliases) -eq 0 ]; then
   echo "alias find='echo you should use fd instead'" >> ~/.bash_aliases
 fi
 
 # Install ncdu (du replacement)
-apt install ncdu
+sudo apt install ncdu
 if [ $(grep -ic "alias du='ncdu'" ~/.bash_aliases) -eq 0 ]; then
   echo "alias du='ncdu'" >> ~/.bash_aliases
 fi
 
 # Install ack & ag (grep replacement)
-apt install ack silversearcher-ag
+sudo apt install ack silversearcher-ag
 if [ $(grep -ic "alias grep='echo you should use ack or ag instead'" ~/.bash_aliases) -eq 0 ]; then
   echo "alias grep='echo you should use ack or ag instead'" >> ~/.bash_aliases
 fi
 
 # Install entr (watch replacement)
-apt install entr
+sudo apt install entr
 if [ $(grep -ic "alias watch='echo you should use entr instead'" ~/.bash_aliases) -eq 0 ]; then
   echo "alias watch='echo you should use entr instead'" >> ~/.bash_aliases
 fi
@@ -74,11 +74,11 @@ fi
 sudo apt install flashplugin-installer
 
 # Install KVM
-apt install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils virt-viewer virt-manager
+sudo apt install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils virt-viewer virt-manager
 
 # Install Docker
-apt install docker.io
+sudo apt install docker.io
 
 # Configuration
 git config --global credential.helper 'cache --timeout=600'
-adduser `id -un` libvirt
+sudo adduser `id -un` libvirt
