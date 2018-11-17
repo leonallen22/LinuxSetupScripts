@@ -1,0 +1,10 @@
+- name: Install bats, for bash testing
+  become: true
+  apt:
+    state: present
+    deb: "https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb"
+
+- name: Configure alias
+  lineinfile:
+    path: ~/.bash_aliases
+    line: "alias cat='bat'"

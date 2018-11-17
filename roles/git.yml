@@ -1,0 +1,11 @@
+- name: Install git
+  become: true
+  apt:
+    state: present
+    name: 'git'
+
+- name: Configure git
+  git_config:
+    name: credential.helper
+    scope: global
+    value: 'cache --timeout=600'

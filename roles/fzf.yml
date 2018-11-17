@@ -1,0 +1,4 @@
+- name: Clone fzf
+  git:
+    depth: 1
+    repo: 'https://github.com/junegunn/fzf.git ~/.fzf'

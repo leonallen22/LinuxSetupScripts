@@ -1,0 +1,17 @@
+- name: Install KVM
+  become: true
+  apt:
+    state: present
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - qemu-kvm
+      - libvirt-bin
+      - ubuntu-vm-builder
+      - bridge-utils
+      - virt-viewer
+      - virt-manager
+
+- name: Add user to libvirt group
+  become: true
+  shell: adduser {{ ansible_user }} libvirt

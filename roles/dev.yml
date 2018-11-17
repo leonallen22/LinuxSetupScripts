@@ -1,0 +1,66 @@
+---
+- hosts: localhost 
+  tasks:
+    - name: Upgrade packages to latest version
+      become: true
+      apt:
+        update_cache: true
+        cache_valid_time: 3600
+        upgrade: true
+
+    - name: Install packages
+      become: true
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+        - tmux
+        - htop
+        - icdiff
+        - ncdu
+        - ack
+        - entr
+        - pandoc
+        - git
+        - ddd
+        - wireshark
+        - xfce4-terminal
+        - imagemagick
+        - openconnect
+        - keepassxc
+
+    - name: Install vim
+      include: vim.yml
+
+    - name: Install bats
+      include: bats.yml
+
+    - name: Install fd
+      include: fd.yml
+
+    - name: Install Docker
+      include: docker.yml
+
+    - name: Install KVM
+      include: kvm.yml
+
+    - name: Uninstall and remove unneeded packages from cache
+      become: true
+      apt:
+        autoremove: true
+        autoclean: true
+
+    - name: Configure .bashrc
+      include: bashrc.yml
+
+    - name: Configure aliases
+      lineinfile:
+        path: ~/.bash_aliases
+        line: "{{ item }}"
+      loop:
+        - "alias diff='icdiff'"
+        - "alias top='htop'"
+        - "alias du='ncdu'"
+        - "alias grep='echo you should use ack instead'"
+        - "alias watch='echo you should use entr instead'"
