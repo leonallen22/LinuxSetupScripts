@@ -15,6 +15,7 @@
         name: "{{ packages }}"
       vars:
         packages:
+        - "apt-transport-https"
         - "coreutils"
         - "htop"
         - "icdiff"
@@ -28,6 +29,7 @@
         - "imagemagick"
         - "openconnect"
         - "keepassxc"
+        - "tor"
 
     - name: Install git
       include: git.yml
@@ -46,6 +48,9 @@
 
     - name: Install fzf
       include: fzf.yml
+
+    - name: Install Tor browser
+      include: tor-browser.yml
 
     - name: Install Docker
       include: docker.yml

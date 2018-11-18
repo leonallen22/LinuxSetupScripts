@@ -1,0 +1,16 @@
+- name: Download Tor Browser
+  get_url:
+    checksum: "sha256:ff116446e66af9663aa0cb9a01b05f906ff50aed00672fbfcc0b31e8358494a5"
+    url: "https://www.torproject.org/dist/torbrowser/8.0.3/tor-browser-linux64-8.0.3_en-US.tar.xz"
+    dest: "~/Downloads/tor-browser.tar.xz"
+
+- name: Decompress Tor Browser
+  unarchive:
+    src: "~/Downloads/tor-browser.tar.xz"
+    dest: "~/"
+    creates: "~/tor-browser_en-US"
+
+- name: Register as desktop app
+  shell: "./start-tor-browser.desktop --register-app"
+  args:
+    chdir: "~/tor-browser_en-US"
