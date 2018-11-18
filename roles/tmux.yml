@@ -14,4 +14,4 @@
     - "unbind-key C-b"
     - "bind-key a send-prefix"
     - "set -g mouse on"
-    - "bind r source ~/.tmux.conf\; display '~/.tmux.conf sourced~'"
+    - "bind r source ~/.tmux.conf\\; display '~/.tmux.conf sourced~'"

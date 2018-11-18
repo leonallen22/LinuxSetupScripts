@@ -4,10 +4,15 @@
     state: present
     name: "vim"
 
-- name: Get Vim Theme
+- name: Get Vim theme
   git:
     dest: "~/Github/vim-sublime-monokai"
     repo: "https://github.com/ErichDonGubler/vim-sublime-monokai.git"
+
+- name: Install Vim theme
+  copy:
+    src: "~/Github/vim-sublime-monokai/colors/sublimemonokai.vim"
+    dest: "~/.vim/colors"
 
 - name: Set up ~/.vimrc
   lineinfile:
