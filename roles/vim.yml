@@ -2,12 +2,17 @@
   become: true
   apt:
     state: present
-    name: vim
+    name: "vim"
+
+- name: Get Vim Theme
+  git:
+    dest: "~/Github/vim-sublime-monokai"
+    repo: "https://github.com/ErichDonGubler/vim-sublime-monokai.git"
 
 - name: Set up ~/.vimrc
   lineinfile:
     create: true
-    path: ~/.vimrc
+    path: "~/.vimrc"
     line: "{{ item }}"
   loop:
     - "set expandtab"

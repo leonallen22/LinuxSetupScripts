@@ -2,8 +2,8 @@
   become: true
   apt:
     state: present
-    name: docker.io
+    name: "docker.io"
     
 - name: Add user to docker group
   become: true
-  shell: adduser {{ ansible_user }} docker
+  shell: "adduser {{ ansible_user }} docker"

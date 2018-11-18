@@ -11,30 +11,32 @@
     - name: Install packages
       become: true
       apt:
-        name: "{{ packages }}"
         state: present
+        name: "{{ packages }}"
       vars:
         packages:
-        - tmux
-        - htop
-        - icdiff
-        - ncdu
-        - ack
-        - entr
-        - pandoc
-        - git
-        - ddd
-        - wireshark
-        - xfce4-terminal
-        - imagemagick
-        - openconnect
-        - keepassxc
+        - "coreutils"
+        - "htop"
+        - "icdiff"
+        - "ncdu"
+        - "ack"
+        - "entr"
+        - "pandoc"
+        - "ddd"
+        - "wireshark"
+        - "xfce4-terminal"
+        - "imagemagick"
+        - "openconnect"
+        - "keepassxc"
 
     - name: Install git
       include: git.yml
 
     - name: Install vim
       include: vim.yml
+
+    - name: Install tmux
+      include: tmux.yml
 
     - name: Install bats
       include: bats.yml
@@ -62,7 +64,7 @@
 
     - name: Configure aliases
       lineinfile:
-        path: ~/.bash_aliases
+        path: "~/.bash_aliases"
         line: "{{ item }}"
       loop:
         - "alias diff='icdiff'"

@@ -6,5 +6,5 @@
 
 - name: Configure alias
   lineinfile:
-    path: ~/.bash_aliases
+    path: "~/.bash_aliases"
     line: "alias cat='bat'"

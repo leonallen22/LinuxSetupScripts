@@ -1,4 +1,8 @@
 - name: Clone fzf
   git:
     depth: 1
-    repo: 'https://github.com/junegunn/fzf.git ~/.fzf'
+    dest: "~/Github/.fzf"
+    repo: "https://github.com/junegunn/fzf.git"
+
+- name: Build & install the thing
+  shell: "yes | ~/.fzf/install"

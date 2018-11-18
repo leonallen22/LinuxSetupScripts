@@ -5,13 +5,13 @@
     name: "{{ packages }}"
   vars:
     packages:
-      - qemu-kvm
-      - libvirt-bin
-      - ubuntu-vm-builder
-      - bridge-utils
-      - virt-viewer
-      - virt-manager
+      - "qemu-kvm"
+      - "libvirt-bin"
+      - "ubuntu-vm-builder"
+      - "bridge-utils"
+      - "virt-viewer"
+      - "virt-manager"
 
 - name: Add user to libvirt group
   become: true
-  shell: adduser {{ ansible_user }} libvirt
+  shell: "adduser {{ ansible_user }} libvirt"

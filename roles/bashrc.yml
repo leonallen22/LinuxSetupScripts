@@ -1,6 +1,6 @@
 - name: Set up .bashrc
   lineinfile:
-    path: ~/.bashrc
+    path: "~/.bashrc"
     line: "{{ item }}"
   loop:
     - "export EDITOR=vim"

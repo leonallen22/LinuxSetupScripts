@@ -1,0 +1,17 @@
+- name: Install tmux
+  become: true
+  apt:
+    state: present
+    name: "tmux"
+
+- name: Set up ~/.tmux.conf
+  lineinfile:
+    create: true
+    path: "~/.tmux.conf"
+    line: "{{ item }}"
+  loop:
+    - "set-option -g prefix C-a"
+    - "unbind-key C-b"
+    - "bind-key a send-prefix"
+    - "set -g mouse on"
+    - "bind r source ~/.tmux.conf\; display '~/.tmux.conf sourced~'"
