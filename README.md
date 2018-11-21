@@ -7,6 +7,7 @@ For usage on locahost.
 ```ansible-playbook -vK roles/ubuntu-setup.yml```
 
 ## TODO
+- Test fzf & apt-update-indicator installs
 - Add tresorit install
 - Add Firefox install + config
 - Add xfce4-terminal config

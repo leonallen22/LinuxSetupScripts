@@ -21,6 +21,8 @@
         - "icdiff"
         - "ncdu"
         - "ack"
+        - "vrms"
+        - "gnome-tweak-tool"
         - "entr"
         - "pandoc"
         - "ddd"
