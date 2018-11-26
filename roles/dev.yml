@@ -30,6 +30,9 @@
         - "xfce4-terminal"
         - "imagemagick"
         - "openconnect"
+        - "openvpn"
+        - "network-manager-openvpn-gnome"
+        - "resolvconf"
         - "keepassxc"
         - "tor"
 
