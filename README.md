@@ -8,6 +8,7 @@ For usage on locahost.
 
 ## TODO
 - Test fzf & apt-update-indicator installs
+- /etc/default/grub GRUB_TIMEOUT=2 && update-grub
 - Add tresorit install
 - Add Firefox install + config
 - Add xfce4-terminal config
