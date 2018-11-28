@@ -1,5 +1,5 @@
 # LinuxSetupScripts
-Initial Ubuntu setup tasks.
+Initial Debian-based distro setup tasks.
 For usage on locahost.
 VPN setup: https://protonvpn.com/support/linux-vpn-setup/
 

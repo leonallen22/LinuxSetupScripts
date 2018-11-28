@@ -1,0 +1,16 @@
+- name: Install packages for ProtonVPN
+  become: true
+  apt:
+    state: present
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - "openvpn"
+    - "resolvconf"
+    - "network-manager-openvpn-gnome"
+
+- name: Download ProtonVPN Config
+  get_url:
+    url: "https://account.protonvpn.com/api/vpn/config?APIVersion=3&Country=US&LogicalID=ktqlKw3s-JEjT2s6BDWeuHqOtqmrUPsDcztLoG6l5Ik3CPQzFgpLcRAs0u2qmtEFO3tKZMWtoAUbRsWTKNV5vw%3D%3D&Platform=macOS&Protocol=udp"
+    dest: "~/Downloads/protonvpnconf.ovpn"
+
