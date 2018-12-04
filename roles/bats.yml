@@ -1,8 +1,16 @@
 - name: Install bats, for bash testing
+  when: ansible_os_family == "Debian"
   become: true
   package:
     state: present
     deb: "https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb"
+
+- name: Install bats, for bash testing
+  when: ansible_os_family == "Arch"
+  become: true
+  package:
+    state: present
+    deb: "https://github.com/sharkdp/bat/releases/download/v0.9.0/bat-v0.9.0-aarch64-unknown-linux-gnu.tar.gz"
 
 - name: Configure alias
   lineinfile:

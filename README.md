@@ -12,6 +12,7 @@ VPN setup: https://protonvpn.com/support/linux-vpn-setup/
 - Add tresorit install
 - Add Firefox install + config
 - Add xfce4-terminal config
+- Finish Arch install conversion
 
 ## Credit
 vim theme: https://github.com/ErichDonGubler/vim-sublime-monokai
