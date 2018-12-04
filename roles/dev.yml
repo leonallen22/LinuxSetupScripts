@@ -50,8 +50,8 @@
     - name: Install tmux
       include: tmux.yml
 
-    - name: Install bats
-      include: bats.yml
+    - name: Install bat
+      include: bat.yml
 
     - name: Install fd
       include: fd.yml
