@@ -16,7 +16,27 @@
         update_cache: yes
         upgrade: yes
 
-    - name: Install packages
+    - name: Install common packages
+      become: true
+      package:
+        state: present
+        name: "{{ packages }}"
+      vars:
+        packages:
+        - "coreutils"
+        - "htop"
+        - "ncdu"
+        - "ack"
+        - "pandoc"
+        - "wireshark-qt"
+        - "xfce4-terminal"
+        - "imagemagick"
+        - "openconnect"
+        - "keepassxc"
+        - "tor"
+
+    - name: Install Debian-only packages
+      when: ansible_os_family == "Debian"
       become: true
       package:
         state: present
@@ -24,22 +44,22 @@
       vars:
         packages:
         - "apt-transport-https"
-        - "coreutils"
-        - "htop"
-        - "icdiff"
-        - "ncdu"
-        - "ack"
-        - "vrms"
         - "gnome-tweak-tool"
+        - "icdiff"
+        - "vrms"
         - "entr"
-        - "pandoc"
         - "ddd"
-        - "wireshark"
-        - "xfce4-terminal"
-        - "imagemagick"
-        - "openconnect"
-        - "keepassxc"
-        - "tor"
+
+    - name: Install Arch-only packages
+      when: ansible_os_family == "Arch"
+      become: true
+      package:
+        state: present
+        name: "{{ packages }}"
+      vars:
+        packages:
+        - "yaourt"
+        - "package-query"
 
     - name: Install git
       include: git.yml
