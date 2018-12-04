@@ -2,6 +2,7 @@
 - hosts: localhost 
   tasks:
     - name: Upgrade packages to latest version
+      when: ansible_os_family == "Debian"
       become: true
       apt:
         update_cache: true
@@ -10,7 +11,7 @@
 
     - name: Install packages
       become: true
-      apt:
+      package:
         state: present
         name: "{{ packages }}"
       vars:
@@ -61,6 +62,7 @@
       include: kvm.yml
 
     - name: Uninstall and remove unneeded packages from cache
+      when: ansible_os_family == "Debian"
       become: true
       apt:
         autoremove: true

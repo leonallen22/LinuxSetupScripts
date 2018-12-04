@@ -1,6 +1,6 @@
 - name: Install packages for ProtonVPN
   become: true
-  apt:
+  package:
     state: present
     name: "{{ packages }}"
   vars:
