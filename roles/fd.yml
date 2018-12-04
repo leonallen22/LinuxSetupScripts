@@ -1,8 +1,16 @@
-- name: Install fd, find replacement
+- name: Install fd, find replacement (Debian)
+  when: ansible_os_family == "Debian"
   become: true
   package:
     state: present
     deb: "https://github.com/sharkdp/fd/releases/download/v7.2.0/fd_7.2.0_amd64.deb"
+
+- name: Install fd, find replacement (Arch)
+  when: ansible_os_family == "Arch"
+  become: true
+  package:
+    state: present
+    deb: "https://github.com/sharkdp/fd/releases/download/v7.2.0/fd-v7.2.0-x86_64-unknown-linux-gnu.tar.gz"
 
 - name: Configure alias
   lineinfile:
