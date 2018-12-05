@@ -45,6 +45,7 @@
         packages:
         - "apt-transport-https"
         - "gnome-tweak-tool"
+        - "gparted"
         - "icdiff"
         - "vrms"
         - "entr"
