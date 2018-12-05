@@ -14,4 +14,5 @@
     - "unbind-key C-b"
     - "bind-key a send-prefix"
     - "set -g mouse on"
+    - "set -g default-terminal 'xterm-256color'"
     - "bind r source ~/.tmux.conf\\; display '~/.tmux.conf sourced~'"
