@@ -50,6 +50,7 @@
         - "vrms"
         - "entr"
         - "ddd"
+        - "lynis"
 
     - name: Install Arch-only packages
       when: ansible_os_family == "Arch"
@@ -61,6 +62,7 @@
         packages:
         - "yaourt"
         - "package-query"
+        - "arch-audit"
 
     - name: Install git
       include: git.yml
