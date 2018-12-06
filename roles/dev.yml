@@ -101,6 +101,7 @@
 
     - name: Configure aliases
       lineinfile:
+        create: true
         path: "~/.bash_aliases"
         line: "{{ item }}"
       loop:

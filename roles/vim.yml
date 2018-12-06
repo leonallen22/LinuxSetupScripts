@@ -9,6 +9,11 @@
     dest: "~/Github/vim-sublime-monokai"
     repo: "https://github.com/ErichDonGubler/vim-sublime-monokai.git"
 
+- name: Create .vim directory
+  file:
+    path: "~/.vim"
+    state: directory
+
 - name: Install Vim theme
   copy:
     src: "~/Github/vim-sublime-monokai/colors/sublimemonokai.vim"
