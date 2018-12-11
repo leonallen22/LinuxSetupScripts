@@ -9,8 +9,8 @@
         cache_valid_time: 3600
         upgrade: true
 
-    - name: Upgrade packages to latest version (Arch)
-      when: ansible_os_family == "Arch"
+    - name: Upgrade packages to latest version (Archlinux)
+      when: ansible_os_family == "Archlinux"
       become: true
       pacman:
         update_cache: yes
@@ -52,8 +52,8 @@
         - "ddd"
         - "lynis"
 
-    - name: Install Arch-only packages
-      when: ansible_os_family == "Arch"
+    - name: Install Archlinux-only packages
+      when: ansible_os_family == "Archlinux"
       become: true
       package:
         state: present

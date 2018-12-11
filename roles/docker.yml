@@ -1,9 +1,20 @@
-- name: Install KVM
+- name: Install Docker (Debian)
+  when: ansible_os_family == "Debian"
   become: true
   package:
     state: present
     name: "docker.io"
-    
+
+- name: Install Docker (Archlinux)
+  when: ansible_os_family == "Archlinux"
+  become: true
+  package:
+    state: present
+    name: "docker" 
+
 - name: Add user to docker group
   become: true
-  shell: "adduser {{ ansible_user }} docker"
+  user:
+    name: "{{ ansible_user }}"
+    groups: "docker"
+    append: true

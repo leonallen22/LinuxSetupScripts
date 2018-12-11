@@ -1,3 +1,8 @@
+- name: Create fzf directory
+  file:
+    path: "~/Github/.fzf"
+    state: directory
+
 - name: Clone fzf
   git:
     depth: 1
@@ -5,4 +10,4 @@
     repo: "https://github.com/junegunn/fzf.git"
 
 - name: Build & install the thing
-  shell: "yes | ~/.fzf/install"
+  shell: "yes | ~/Github/.fzf/install"

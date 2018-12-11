@@ -1,4 +1,5 @@
-- name: Install KVM
+- name: Install KVM (Debian)
+  when: ansible_os_family == "Debian"
   become: true
   package:
     state: present
@@ -12,6 +13,23 @@
       - "virt-viewer"
       - "virt-manager"
 
+- name: Install KVM (Archlinux)
+  when: ansible_os_family == "Archlinux"
+  become: true
+  package:
+    state: present
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - "qemu"
+      - "bridge-utils"
+      - "virt-viewer"
+      - "virt-manager"
+
 - name: Add user to libvirt group
   become: true
-  shell: "adduser {{ ansible_user }} libvirt"
+  user:
+    name: "{{ ansible_user }}"
+    groups: "libvirt"
+    append: true
+

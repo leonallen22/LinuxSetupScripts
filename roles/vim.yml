@@ -17,7 +17,7 @@
 - name: Install Vim theme
   copy:
     src: "~/Github/vim-sublime-monokai/colors/sublimemonokai.vim"
-    dest: "~/.vim/colors"
+    dest: "~/.vim/colors/sublimemonokai.vim"
 
 - name: Set up ~/.vimrc
   lineinfile:

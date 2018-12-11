@@ -5,8 +5,8 @@
     state: present
     deb: "https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb"
 
-- name: Install bat, cat replacement (Arch)
-  when: ansible_os_family == "Arch"
+- name: Install bat, cat replacement (Archlinux)
+  when: ansible_os_family == "Archlinux"
   become: true
   package:
     state: present
