@@ -1,0 +1,11 @@
+- name: Add Nextcloud PPA
+  when: ansible_os_family == "Debian"
+  apt_repository:
+    state: present
+    repo: "ppa:nextcloud-devs/client"
+
+- name: Install Nextcloud
+  become: true
+  package:
+    state: present
+    name: "nextcloud-client"
