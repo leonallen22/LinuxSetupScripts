@@ -9,7 +9,7 @@ VPN setup: https://protonvpn.com/support/linux-vpn-setup/
 ## TODO
 - Test fzf & apt-update-indicator installs
 - /etc/default/grub GRUB_TIMEOUT=2 && update-grub
-- Add tresorit install
+- Add Nextcloud-client install
 - Add Firefox install + config
 - Add xfce4-terminal config
 - Finish Arch install conversion
