@@ -1,13 +1,13 @@
 - name: Create fzf directory
   file:
-    path: "~/Github/.fzf"
+    path: "~/GitHub/.fzf"
     state: directory
 
 - name: Clone fzf
   git:
     depth: 1
-    dest: "~/Github/.fzf"
+    dest: "~/GitHub/.fzf"
     repo: "https://github.com/junegunn/fzf.git"
 
 - name: Build & install the thing
-  shell: "yes | ~/Github/.fzf/install"
+  shell: "yes | ~/GitHub/.fzf/install"

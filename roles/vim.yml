@@ -6,7 +6,7 @@
 
 - name: Get Vim theme
   git:
-    dest: "~/Github/vim-sublime-monokai"
+    dest: "~/GitHub/vim-sublime-monokai"
     repo: "https://github.com/ErichDonGubler/vim-sublime-monokai.git"
 
 - name: Create .vim directory
@@ -16,7 +16,7 @@
 
 - name: Install Vim theme
   copy:
-    src: "~/Github/vim-sublime-monokai/colors/sublimemonokai.vim"
+    src: "~/GitHub/vim-sublime-monokai/colors/sublimemonokai.vim"
     dest: "~/.vim/colors/sublimemonokai.vim"
 
 - name: Set up ~/.vimrc
