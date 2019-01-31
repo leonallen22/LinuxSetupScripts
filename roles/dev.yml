@@ -51,6 +51,7 @@
         - "entr"
         - "ddd"
         - "lynis"
+        - "xclip"
 
     - name: Install Archlinux-only packages
       when: ansible_os_family == "Archlinux"

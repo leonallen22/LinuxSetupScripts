@@ -1,8 +1,9 @@
 - name: Add Nextcloud PPA
+  become: true
   when: ansible_os_family == "Debian"
   apt_repository:
     state: present
-    repo: "ppa:nextcloud-devs/client"
+    repo: "deb http://ppa.launchpad.net/nextcloud-devs/client/ubuntu cosmic main"
 
 - name: Install Nextcloud
   become: true

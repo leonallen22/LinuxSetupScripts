@@ -1,7 +1,7 @@
 - name: Download Tor Browser
   get_url:
-    checksum: "sha256:ff116446e66af9663aa0cb9a01b05f906ff50aed00672fbfcc0b31e8358494a5"
-    url: "https://www.torproject.org/dist/torbrowser/8.0.3/tor-browser-linux64-8.0.3_en-US.tar.xz"
+    checksum: "sha256:b115a7fc8c3c40f441c7ce1ebb237a64c7d1068e6a9edac425b267e377c1d929"
+    url: "https://www.torproject.org/dist/torbrowser/8.0.5/tor-browser-linux64-8.0.5_en-US.tar.xz"
     dest: "~/Downloads/tor-browser.tar.xz"
 
 - name: Decompress Tor Browser
