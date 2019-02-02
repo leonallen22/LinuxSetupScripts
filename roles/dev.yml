@@ -30,11 +30,11 @@
         - "pandoc"
         - "wireshark-qt"
         - "gparted"
-        - "xfce4-terminal"
         - "imagemagick"
         - "openconnect"
         - "keepassxc"
         - "tor"
+        - "firefox"
 
     - name: Install Debian-only packages
       when: ansible_os_family == "Debian"
