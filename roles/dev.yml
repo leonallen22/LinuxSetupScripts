@@ -1,7 +1,7 @@
 ---
 - hosts: localhost 
   tasks:
-    - name: Upgrade packages to latest version (Debian)
+    - name: Upgrade packages to latest version (Debian-based)
       when: ansible_os_family == "Debian"
       become: true
       apt:
@@ -9,7 +9,7 @@
         cache_valid_time: 3600
         upgrade: true
 
-    - name: Upgrade packages to latest version (Archlinux)
+    - name: Upgrade packages to latest version (Archlinux-based)
       when: ansible_os_family == "Archlinux"
       become: true
       pacman:
@@ -36,7 +36,10 @@
         - "tor"
         - "firefox"
 
-    - name: Install Debian-only packages
+    - name: Install DE stuff
+      include: de.yml
+
+    - name: Install packages (Debian-based)
       when: ansible_os_family == "Debian"
       become: true
       package:
@@ -45,7 +48,7 @@
       vars:
         packages:
         - "apt-transport-https"
-        - "gnome-tweak-tool"
+        - "dconf-editor"
         - "icdiff"
         - "entr"
         - "ddd"
@@ -54,7 +57,7 @@
         - "numix-gtk-theme"
         - "numix-icon-theme"
 
-    - name: Install Archlinux-only packages
+    - name: Install packages (Archlinux-based)
       when: ansible_os_family == "Archlinux"
       become: true
       package:

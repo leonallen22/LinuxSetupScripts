@@ -10,8 +10,7 @@ VPN setup: https://protonvpn.com/support/linux-vpn-setup/
 - /etc/default/grub GRUB_TIMEOUT=2 && update-grub
 - Add Firefox config
 - Add MATE terminal config
-- MATE tweak tool?
-- Add keyboard bindings for app menu && terminal launch
+- Set DNS provider
 
 ## Credit
 vim theme: https://github.com/ErichDonGubler/vim-sublime-monokai
