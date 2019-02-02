@@ -1,9 +1,16 @@
+- name: Ensure key present (Necessary for Debian)
+  become: true
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 1FCD77DD0DBEF5699AD2610160EE47FBAD3DD469
+
 - name: Add Nextcloud PPA
   become: true
   when: ansible_os_family == "Debian"
+  ignore_errors: true
   apt_repository:
     state: present
-    repo: "deb http://ppa.launchpad.net/nextcloud-devs/client/ubuntu cosmic main"
+    repo: "deb http://ppa.launchpad.net/nextcloud-devs/client/ubuntu bionic main"
 
 - name: Install Nextcloud
   become: true
