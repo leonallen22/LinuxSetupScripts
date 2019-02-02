@@ -35,6 +35,8 @@
         - "keepassxc"
         - "tor"
         - "firefox"
+        - "numix-gtk-theme"
+        - "numix-icon-theme"
 
     - name: Install DE stuff
       include: de.yml
@@ -54,8 +56,6 @@
         - "ddd"
         - "lynis"
         - "xclip"
-        - "numix-gtk-theme"
-        - "numix-icon-theme"
 
     - name: Install packages (Archlinux-based)
       when: ansible_os_family == "Archlinux"
