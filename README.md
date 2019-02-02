@@ -10,7 +10,6 @@ VPN setup: https://protonvpn.com/support/linux-vpn-setup/
 - /etc/default/grub GRUB_TIMEOUT=2 && update-grub
 - Add Firefox config
 - Add MATE terminal config
-- Add MATE app search install (mainly for Debian)
 - MATE tweak tool?
 - Add keyboard bindings for app menu && terminal launch
 
