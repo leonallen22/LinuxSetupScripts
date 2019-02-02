@@ -47,11 +47,12 @@
         - "apt-transport-https"
         - "gnome-tweak-tool"
         - "icdiff"
-        - "vrms"
         - "entr"
         - "ddd"
         - "lynis"
         - "xclip"
+        - "numix-gtk-theme"
+        - "numix-icon-theme"
 
     - name: Install Archlinux-only packages
       when: ansible_os_family == "Archlinux"
