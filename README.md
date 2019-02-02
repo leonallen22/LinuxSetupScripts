@@ -7,10 +7,11 @@ VPN setup: https://protonvpn.com/support/linux-vpn-setup/
 ```ansible-playbook -vK roles/dev.yml```
 
 ## TODO
-- Test fzf & apt-update-indicator installs
 - /etc/default/grub GRUB_TIMEOUT=2 && update-grub
-- Add Firefox install + config
-- Finish Arch install conversion
+- Add Firefox config
+- Add MATE terminal config
+- Add MATE app search install (mainly for Debian)
+- MATE tweak tool?
 
 ## Credit
 vim theme: https://github.com/ErichDonGubler/vim-sublime-monokai
