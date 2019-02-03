@@ -2,6 +2,7 @@
 Initial Debian-based distro setup tasks.
 For usage on locahost.
 VPN setup: https://protonvpn.com/support/linux-vpn-setup/
+Graphics Driver Package: nvidia-driver
 
 ## Usage
 ```ansible-playbook -vK roles/dev.yml```
