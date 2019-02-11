@@ -29,6 +29,7 @@
         - "ack"
         - "pandoc"
         - "wireshark-qt"
+        - "iperf"
         - "gparted"
         - "imagemagick"
         - "openconnect"
