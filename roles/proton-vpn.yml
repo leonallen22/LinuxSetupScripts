@@ -7,10 +7,12 @@
     packages:
     - "openvpn"
     - "resolvconf"
+    - "network-manger-openvpn"
     - "network-manager-openvpn-gnome"
 
 - name: Download ProtonVPN Config
+  become: true
   get_url:
     url: "https://account.protonvpn.com/api/vpn/config?APIVersion=3&Country=US&LogicalID=ktqlKw3s-JEjT2s6BDWeuHqOtqmrUPsDcztLoG6l5Ik3CPQzFgpLcRAs0u2qmtEFO3tKZMWtoAUbRsWTKNV5vw%3D%3D&Platform=macOS&Protocol=udp"
-    dest: "~/Downloads/protonvpnconf.ovpn"
+    dest: "/etc/openvpn/client/protonvpnconf.ovpn"
 
