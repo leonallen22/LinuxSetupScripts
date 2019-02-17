@@ -27,6 +27,7 @@
         - "htop"
         - "ncdu"
         - "ack"
+        - "curl"
         - "pandoc"
         - "wireshark-qt"
         - "iperf"
