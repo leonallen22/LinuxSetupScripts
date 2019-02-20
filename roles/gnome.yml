@@ -1,0 +1,8 @@
+- name: Install GNOME stuff
+  become: true
+  package:
+    state: present
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - "gnome-tweak-tool"

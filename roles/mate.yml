@@ -1,0 +1,9 @@
+- name: Install MATE stuff
+  become: true
+  package:
+    state: present
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - "mate-tweak"
+      - "menulibre"
