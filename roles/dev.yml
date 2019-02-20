@@ -40,6 +40,7 @@
         - "firefox"
         - "numix-gtk-theme"
         - "numix-icon-theme"
+        - "software-properties-common"
 
     - name: Install DE stuff
       include: de.yml
