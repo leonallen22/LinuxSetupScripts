@@ -5,11 +5,8 @@
     name: "{{ packages }}"
   vars:
     packages:
-    - "xfce4-session"
-    - "xfce4-panel"
-    - "xfce4-battery-plugin"
-    - "xfce4-notifyd"
-    - "xfce4-power-manager"
-    - "xfce4-power-manager-plugins"
-    - "xfce4-pulseaudio-plugin"
-    - "xfce-keyboard-shortcuts"
+    - "xfce4"
+    - "task-xfce-desktop"
+
+- name: Turn off infuriating beeps
+  shell: "xset b off"
