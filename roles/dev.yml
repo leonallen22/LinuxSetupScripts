@@ -103,6 +103,9 @@
     - name: Install Nextcloud
       include: nextcloud.yml
 
+    - name: Install Yubikey Software
+      include: yubikey.yml
+
     - name: Uninstall and remove unneeded packages from cache
       when: ansible_os_family == "Debian"
       become: true
