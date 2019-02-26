@@ -42,8 +42,8 @@
         - "numix-icon-theme"
         - "software-properties-common"
 
-    - name: Install DE stuff
-      include: de.yml
+    - name: Install Desktop Environment stuff
+      include: desktop-environment.yml
 
     - name: Install packages (Debian-based)
       when: ansible_os_family == "Debian"
