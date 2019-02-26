@@ -9,7 +9,7 @@ Graphics Driver Package: nvidia-driver
 
 ## TODO
 - /etc/default/grub GRUB_TIMEOUT=2 && update-grub
-- Add Firefox config
+- Test Firefox config
 - Add MATE terminal config
 - Enable 32-bit support (Debian)
 - Set DNS provider
