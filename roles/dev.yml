@@ -37,7 +37,6 @@
         - "openconnect"
         - "keepassxc"
         - "tor"
-        - "firefox"
         - "numix-gtk-theme"
         - "numix-icon-theme"
         - "software-properties-common"
@@ -72,6 +71,9 @@
         - "yaourt"
         - "package-query"
         - "arch-audit"
+
+    - name: Install Firefox
+      include: firefox.yml
 
     - name: Install git
       include: git.yml
