@@ -40,6 +40,7 @@
         - "numix-gtk-theme"
         - "numix-icon-theme"
         - "software-properties-common"
+        - "dnsmasq"
 
     - name: Install Desktop Environment stuff
       include: desktop-environment.yml
