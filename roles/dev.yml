@@ -54,6 +54,7 @@
       vars:
         packages:
         - "apt-transport-https"
+        - "apt-listbugs"
         - "dconf-editor"
         - "icdiff"
         - "entr"
