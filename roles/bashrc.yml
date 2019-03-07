@@ -4,5 +4,6 @@
     path: "~/.bashrc"
     line: "{{ item }}"
   loop:
+    - "export PATH=$PATH:/sbin"
     - "export EDITOR=vim"
     - "export VISUAL=vim"
