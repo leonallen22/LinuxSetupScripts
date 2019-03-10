@@ -32,6 +32,7 @@
         - "wireshark-qt"
         - "iperf"
         - "gparted"
+        - "transmission"
         - "clamtk"
         - "imagemagick"
         - "openconnect"
