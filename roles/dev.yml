@@ -32,7 +32,6 @@
         - "wireshark-qt"
         - "iperf"
         - "gparted"
-        - "transmission"
         - "clamtk"
         - "imagemagick"
         - "openconnect"
@@ -40,7 +39,6 @@
         - "tor"
         - "numix-gtk-theme"
         - "numix-icon-theme"
-        - "software-properties-common"
         - "dnsmasq"
 
     - name: Install Desktop Environment stuff
@@ -62,6 +60,8 @@
         - "ddd"
         - "lynis"
         - "xclip"
+        - "transmission"
+        - "software-properties-common"
 
     - name: Install packages (Archlinux-based)
       when: ansible_os_family == "Archlinux"
@@ -74,6 +74,7 @@
         - "yaourt"
         - "package-query"
         - "arch-audit"
+        - "transmission-gtk"
 
     - name: Install Firefox
       include: firefox.yml
