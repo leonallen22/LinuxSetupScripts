@@ -1,8 +1,15 @@
+- name: Download Tor Browser checksum
+  get_url:
+    url: "https://dist.torproject.org/torbrowser/8.0.8/sha256sums-signed-build.txt"
+    dest: "~/Downloads/tor_browser_checksum"
+
 - name: Download Tor Browser
   get_url:
-    checksum: "sha256:b115a7fc8c3c40f441c7ce1ebb237a64c7d1068e6a9edac425b267e377c1d929"
-    url: "https://www.torproject.org/dist/torbrowser/8.0.5/tor-browser-linux64-8.0.5_en-US.tar.xz"
+    url: "https://www.torproject.org/dist/torbrowser/8.0.8/tor-browser-linux64-8.0.8_en-US.tar.xz"
     dest: "~/Downloads/tor-browser.tar.xz"
+    checksum: 'sha256:{{ tor_browser_checksums[0].split()[0] }}'
+  vars:
+    tor_browser_checksums: '{{ lookup("file", "~/Downloads/tor_browser_checksum").splitlines() | select("match", ".*tor-browser-linux64-.*_en-US.tar.xz$") | list }}'
 
 - name: Decompress Tor Browser
   unarchive:
