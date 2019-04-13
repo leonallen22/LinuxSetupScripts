@@ -1,5 +1,6 @@
 - name: Ensure key present (Necessary for Debian)
   become: true
+  when: ansible_os_family == "Debian"
   apt_key:
     keyserver: keyserver.ubuntu.com
     id: 1FCD77DD0DBEF5699AD2610160EE47FBAD3DD469
