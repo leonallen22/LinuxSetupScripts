@@ -71,7 +71,7 @@
         name: "{{ packages }}"
       vars:
         packages:
-        - "yaourt"
+        - "yay"
         - "package-query"
         - "arch-audit"
         - "transmission-gtk"
