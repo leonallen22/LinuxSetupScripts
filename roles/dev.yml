@@ -32,6 +32,7 @@
         - "wireshark-qt"
         - "iperf"
         - "gparted"
+        - "xclip"
         - "clamtk"
         - "imagemagick"
         - "openconnect"
@@ -59,7 +60,6 @@
         - "entr"
         - "ddd"
         - "lynis"
-        - "xclip"
         - "transmission"
         - "software-properties-common"
 
