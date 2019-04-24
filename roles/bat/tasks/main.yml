@@ -1,14 +1,14 @@
-- name: Install Docker (Debian-based)
+- name: Install Bat (Debian-based)
   when: ansible_os_family == "Debian"
-  include: docker_debian.yml
+  include: bat_debian.yml
 
-- name: Install Docker (Arch-based)
+- name: Install Bat (Arch-based)
   when: ansible_os_family == "Archlinux"
-  include: docker_arch.yml
+  include: bat_arch.yml
 
-- name: Install Docker (Solus)
+- name: Install Bat (Solus)
   when: ansible_os_family == "Solus"
-  include: docker_solus.yml
+  include: bat_solus.yml
 
 - name: Configure alias
   lineinfile:
