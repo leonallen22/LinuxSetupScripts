@@ -5,3 +5,7 @@
 - name: Install Go (Arch-based)
   when: ansible_os_family == "Archlinux"
   include: go_arch.yml
+
+- name: Install Go (Solus)
+  when: ansible_os_family == "Solus"
+  include: go_solus.yml
