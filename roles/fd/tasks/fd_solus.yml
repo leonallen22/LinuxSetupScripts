@@ -1,0 +1,4 @@
+- name: Install fd, find replacement (Solus)
+  when: ansible_os_family == "Solus"
+  become: true
+  command: "eopkg install fd --yes-all"

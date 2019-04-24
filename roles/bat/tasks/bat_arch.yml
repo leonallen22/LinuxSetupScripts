@@ -1,6 +1,6 @@
-- name: Install fd, find replacement (Archlinux)
+- name: Install bat, cat replacement (Archlinux)
   when: ansible_os_family == "Archlinux"
   become: true
   package:
     state: present
-    name: "fd"
+    name: "bat"

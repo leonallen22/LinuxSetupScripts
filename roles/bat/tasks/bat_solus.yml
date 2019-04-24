@@ -1,0 +1,4 @@
+- name: Install bat, cat replacement (Solus)
+  when: ansible_os_family == "Solus"
+  become: true
+  command: "eopkg install bat --yes-all"

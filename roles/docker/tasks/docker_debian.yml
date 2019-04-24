@@ -4,10 +4,3 @@
   package:
     state: present
     name: "docker.io"
-
-- name: Add user to docker group
-  become: true
-  user:
-    name: "{{ ansible_user }}"
-    groups: "docker"
-    append: true

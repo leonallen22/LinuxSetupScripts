@@ -5,3 +5,13 @@
 - name: Install fd (Arch-based)
   when: ansible_os_family == "Archlinux"
   include: fd_arch.yml
+
+- name: Install fd (Solus)
+  when: ansible_os_family == "Solus"
+  include: fd_solus.yml
+
+- name: Configure alias
+  lineinfile:
+    create: true
+    path: "~/.bash_aliases"
+    line: "alias find='echo you should use fd instead'"

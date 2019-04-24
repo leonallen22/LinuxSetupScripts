@@ -1,16 +1,14 @@
-- name: Install bat, cat replacement (Debian)
+- name: Install Docker (Debian-based)
   when: ansible_os_family == "Debian"
-  become: true
-  package:
-    state: present
-    deb: "https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb"
+  include: docker_debian.yml
 
-- name: Install bat, cat replacement (Archlinux)
+- name: Install Docker (Arch-based)
   when: ansible_os_family == "Archlinux"
-  become: true
-  package:
-    state: present
-    name: "bat"
+  include: docker_arch.yml
+
+- name: Install Docker (Solus)
+  when: ansible_os_family == "Solus"
+  include: docker_solus.yml
 
 - name: Configure alias
   lineinfile:

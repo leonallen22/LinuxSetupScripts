@@ -11,9 +11,3 @@
   package:
     state: present
     deb: "~/Downloads/fd_7.3.0_amd64.deb"
-
-- name: Configure alias
-  lineinfile:
-    create: true
-    path: "~/.bash_aliases"
-    line: "alias find='echo you should use fd instead'"
