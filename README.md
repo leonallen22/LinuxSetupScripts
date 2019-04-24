@@ -5,7 +5,7 @@ VPN setup: https://protonvpn.com/support/linux-vpn-setup/
 Graphics Driver Package: nvidia-driver
 
 ## Usage
-```ansible-playbook -vK roles/pc.yml```
+```ansible-playbook -vK pc.yml```
 
 ## TODO
 - /etc/default/grub GRUB_TIMEOUT=2 && update-grub
