@@ -1,0 +1,3 @@
+- name: Install Go
+  become: true
+  command: "eopkg install golang --yes-all"

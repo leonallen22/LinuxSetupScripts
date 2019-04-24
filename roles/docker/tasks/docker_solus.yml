@@ -1,0 +1,11 @@
+- name: Install Docker (Solus)
+  when: ansible_os_family == "Solus"
+  become: true
+  command: "eopkg install docker --yes-all"
+
+- name: Add user to docker group
+  become: true
+  user:
+    name: "{{ ansible_user }}"
+    groups: "docker"
+    append: true
