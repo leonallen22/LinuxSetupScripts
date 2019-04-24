@@ -1,8 +1,10 @@
-- name: Install git
-  become: true
-  package:
-    state: present
-    name: "git"
+- name: Install Git
+  when: ansible_os_family != "Solus"
+  include: git.yml
+
+- name: Install Git (Solus)
+  when: ansible_os_family == "Solus"
+  include: git_solus.yml
 
 - name: Configure git
   git_config:

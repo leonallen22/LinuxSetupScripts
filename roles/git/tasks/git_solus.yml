@@ -1,0 +1,3 @@
+- name: Install git
+  become: true
+  command: "eopkg install git --yes-all"
