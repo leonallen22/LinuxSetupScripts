@@ -1,0 +1,3 @@
+- name: Install vim
+  become: true
+  command: "eopkg install vim --yes-install"

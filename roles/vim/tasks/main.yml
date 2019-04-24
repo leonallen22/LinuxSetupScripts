@@ -1,8 +1,10 @@
-- name: Install vim
-  become: true
-  package:
-    state: present
-    name: "vim"
+- name: Install VIM
+  when: ansible_os_family != "Solus"
+  include: vim.yml
+
+- name: Install VIM (Solus)
+  when: ansible_os_family == "Solus"
+  include: vim_solus.yml
 
 - name: Get Vim theme
   git:
