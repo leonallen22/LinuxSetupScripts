@@ -1,20 +1,11 @@
-- name: Ensure key present (Necessary for Debian)
-  become: true
+- name: Install Yubikey Manager (Debian-based)
   when: ansible_os_family == "Debian"
-  apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: 3653E21064B19D134466702E43D5C49532CBA1A9
+  include: yubikey_debian.yml
 
-- name: Add Yubikey PPA
-  become: true
-  when: ansible_os_family == "Debian"
-  ignore_errors: true
-  apt_repository:
-    state: present
-    repo: "deb http://ppa.launchpad.net/yubico/stable/ubuntu disco main"
+- name: Install Yubikey Manager (Archlinux)
+  when: ansible_os_family == "Archlinux"
+  include: yubikey_arch.yml
 
-- name: Install Yubikey Manager
-  become: true
-  package:
-    state: present
-    name: "yubikey-manager"
+- name: Install Yubikey Manager (Solus)
+  when: ansible_os_family == "Solus"
+  include: protonvpn_solus.yml
