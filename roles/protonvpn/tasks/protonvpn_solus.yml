@@ -1,0 +1,9 @@
+- name: Install packages for ProtonVPN
+  become: true
+  command: "eopkg install {{ packages }} --yes-all"
+  vars:
+    packages:
+    - "openvpn"
+    - "resolvconf"
+    - "network-manger-openvpn"
+    - "network-manager-openvpn-gnome"

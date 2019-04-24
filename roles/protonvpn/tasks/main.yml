@@ -1,14 +1,10 @@
-- name: Install packages for ProtonVPN
-  become: true
-  package:
-    state: present
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - "openvpn"
-    - "resolvconf"
-    - "network-manger-openvpn"
-    - "network-manager-openvpn-gnome"
+- name: Install ProtonVPN
+  when: ansible_os_family != "Solus"
+  include: protonvpn.yml
+
+- name: Install ProtonVPN (Solus)
+  when: ansible_os_family == "Solus"
+  include: protonvpn_solus.yml
 
 - name: Download ProtonVPN Config
   become: true

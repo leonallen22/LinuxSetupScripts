@@ -1,0 +1,11 @@
+- name: Install packages for ProtonVPN
+  become: true
+  package:
+    state: present
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - "openvpn"
+    - "resolvconf"
+    - "network-manger-openvpn"
+    - "network-manager-openvpn-gnome"
