@@ -16,31 +16,14 @@
         update_cache: yes
         upgrade: yes
 
-    - name: Install common packages
+    - name: Upgrade packages to latest version (Solus)
+      when: ansible_os_family == "Solus"
       become: true
-      package:
-        state: present
-        name: "{{ packages }}"
-      vars:
-        packages:
-        - "coreutils"
-        - "htop"
-        - "ncdu"
-        - "ack"
-        - "curl"
-        - "pandoc"
-        - "wireshark-qt"
-        - "iperf"
-        - "gparted"
-        - "xclip"
-        - "clamtk"
-        - "imagemagick"
-        - "openconnect"
-        - "keepassxc"
-        - "tor"
-        - "numix-gtk-theme"
-        - "numix-icon-theme"
-        - "dnsmasq"
+      command: "eopkg upgrade --yes-all"
+
+    - name: Install common packages
+      include_role:
+        name: common
 
     - name: Install Desktop Environment stuff
       when: ansible_env['XDG_CURRENT_DESKTOP'] == "MATE"

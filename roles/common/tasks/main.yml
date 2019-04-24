@@ -1,0 +1,7 @@
+- name: Install common packages
+  when: ansible_os_family != "Solus"
+  include: common.yml
+
+- name: Install common packages (Solus)
+  when: ansible_os_family == "Solus"
+  include: common_solus.yml

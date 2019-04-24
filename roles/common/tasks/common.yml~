@@ -1,0 +1,27 @@
+- name: Install common packages
+      become: true
+      package:
+        state: present
+        name: "{{ packages }}"
+      vars:
+        packages:
+        - "coreutils"
+        - "htop"
+        - "ncdu"
+        - "ack"
+        - "curl"
+        - "pandoc"
+        - "wireshark-qt"
+        - "iperf"
+        - "gparted"
+        - "xclip"
+        - "clamtk"
+        - "imagemagick"
+        - "openconnect"
+        - "keepassxc"
+        - "tor"
+        - "numix-gtk-theme"
+        - "numix-icon-theme"
+        - "dnsmasq"
+
+

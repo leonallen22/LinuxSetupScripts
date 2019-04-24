@@ -1,0 +1,23 @@
+- name: Install common packages
+  become: true
+  command: "eopkg install {{ item }} --yes-all"
+  with_items: "{{ packages }}"
+  vars:
+    packages:
+    - "coreutils"
+    - "htop"
+    - "ncdu"
+    - "ack"
+    - "curl"
+    - "pandoc"
+    - "wireshark"
+    - "iperf"
+    - "gparted"
+    - "xclip"
+    - "imagemagick"
+    - "openconnect"
+    - "keepassx"
+    - "tor"
+    - "numix-gtk-theme"
+    - "numix-icon-theme"
+    - "dnsmasq"
