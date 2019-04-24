@@ -1,0 +1,13 @@
+- name: Install Docker (Archlinux)
+  when: ansible_os_family == "Archlinux"
+  become: true
+  package:
+    state: present
+    name: "docker" 
+
+- name: Add user to docker group
+  become: true
+  user:
+    name: "{{ ansible_user }}"
+    groups: "docker"
+    append: true

@@ -1,0 +1,20 @@
+- name: Install KVM (Archlinux)
+  when: ansible_os_family == "Archlinux"
+  become: true
+  package:
+    state: present
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - "qemu"
+      - "bridge-utils"
+      - "virt-viewer"
+      - "virt-manager"
+
+- name: Add user to libvirt group
+  become: true
+  user:
+    name: "{{ ansible_user }}"
+    groups: "libvirt"
+    append: true
+

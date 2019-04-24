@@ -1,13 +1,13 @@
 - name: Ensure key present (Necessary for Debian)
-  become: true
   when: ansible_os_family == "Debian"
+  become: true
   apt_key:
     keyserver: keyserver.ubuntu.com
     id: 1FCD77DD0DBEF5699AD2610160EE47FBAD3DD469
 
 - name: Add Nextcloud PPA
-  become: true
   when: ansible_os_family == "Debian"
+  become: true
   ignore_errors: true
   apt_repository:
     state: present

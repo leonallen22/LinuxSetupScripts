@@ -43,7 +43,14 @@
         - "dnsmasq"
 
     - name: Install Desktop Environment stuff
-      include: desktop-environment.yml
+      when: ansible_env['XDG_CURRENT_DESKTOP'] == "MATE"
+      include_role: 
+        name: mate_addtl
+    
+    - name: Install Desktop Environment stuff
+      when: ansible_env['XDG_CURRENT_DESKTOP'] == "GNOME"
+      include_role: 
+        name: gnome_addtl
 
     - name: Install packages (Debian-based)
       when: ansible_os_family == "Debian"
@@ -77,40 +84,52 @@
         - "transmission-gtk"
 
     - name: Install Firefox
-      include: firefox.yml
+      include_role: 
+        name: firefox
 
     - name: Install git
-      include: git.yml
+      include_role: 
+        name: git
 
     - name: Install vim
-      include: vim.yml
+      include_role: 
+        name: vim
 
     - name: Install tmux
-      include: tmux.yml
+      include_role: 
+        name: tmux
 
     - name: Install bat
-      include: bat.yml
+      include_role: 
+        name: bat
 
     - name: Install fd
-      include: fd.yml
+      include_role: 
+        name: fd
 
     - name: Install fzf
-      include: fzf.yml
+      include_role: 
+        name: fzf
 
     - name: Install Tor browser
-      include: tor-browser.yml
+      include_role: 
+        name: tor_browser
 
     - name: Install Docker
-      include: docker.yml
+      include_role: 
+        name: docker
 
     - name: Install KVM
-      include: kvm.yml
+      include_role: 
+        name: kvm
 
     - name: Install Nextcloud
-      include: nextcloud.yml
+      include_role: 
+        name: nextcloud
 
     - name: Install Yubikey Software
-      include: yubikey.yml
+      include_role: 
+        name: yubikey
 
     - name: Uninstall and remove unneeded packages from cache
       when: ansible_os_family == "Debian"
@@ -120,7 +139,8 @@
         autoclean: true
 
     - name: Configure .bashrc
-      include: bashrc.yml
+      include_role: 
+        name: bash_conf
 
     - name: Configure aliases
       lineinfile:

@@ -1,0 +1,7 @@
+- name: Install Go (Debian-based)
+  when: ansible_os_family == "Debian"
+  include: go_debian.yml
+
+- name: Install Go (Arch-based)
+  when: ansible_os_family == "Archlinux"
+  include: go_arch.yml

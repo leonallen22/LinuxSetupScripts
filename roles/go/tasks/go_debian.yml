@@ -1,0 +1,4 @@
+- name: Install Go
+  become: true
+  package:
+    name: "golang"

@@ -1,0 +1,7 @@
+- name: Install KVM (Debian-based)
+  when: ansible_os_family == "Debian"
+  include: kvm_debian.yml
+
+- name: Install KVM (Arch-based)
+  when: ansible_os_family == "Archlinux"
+  include: kvm_arch.yml

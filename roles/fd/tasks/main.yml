@@ -1,0 +1,7 @@
+- name: Install fd (Debian-based)
+  when: ansible_os_family == "Debian"
+  include: fd_debian.yml
+
+- name: Install fd (Arch-based)
+  when: ansible_os_family == "Archlinux"
+  include: fd_arch.yml

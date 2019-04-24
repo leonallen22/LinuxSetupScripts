@@ -1,0 +1,7 @@
+- name: Install Docker (Debian-based)
+  when: ansible_os_family == "Debian"
+  include: docker_debian.yml
+
+- name: Install Docker (Arch-based)
+  when: ansible_os_family == "Archlinux"
+  include: docker_arch.yml
