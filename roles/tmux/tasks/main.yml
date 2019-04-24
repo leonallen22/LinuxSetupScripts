@@ -1,8 +1,10 @@
-- name: Install tmux
-  become: true
-  package:
-    state: present
-    name: "tmux"
+- name: Install Tmux
+  when: ansible_os_family != "Solus"
+  include: tmux.yml
+
+- name: Install Tmux (Solus)
+  when: ansible_os_family == "Solus"
+  include: tmux_solus.yml
 
 - name: Set up ~/.tmux.conf
   lineinfile:
