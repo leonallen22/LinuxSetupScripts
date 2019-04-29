@@ -10,6 +10,7 @@
     - "ncdu"
     - "ack"
     - "curl"
+    - "socat"
     - "pandoc"
     - "wireshark-qt"
     - "iperf"

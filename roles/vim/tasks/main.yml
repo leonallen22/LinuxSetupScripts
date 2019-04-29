@@ -42,6 +42,7 @@
     - "set foldenable"
     - "set foldmethod=indent"
     - "set foldlevel=50"
+    - "set nobackup"
     - "syntax on"
     - "filetype indent on"
     - "nnoremap j gj"
