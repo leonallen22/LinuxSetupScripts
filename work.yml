@@ -44,7 +44,6 @@
       vars:
         packages:
         - "apt-transport-https"
-        - "apt-listbugs"
         - "dconf-editor"
         - "icdiff"
         - "entr"
@@ -52,6 +51,13 @@
         - "lynis"
         - "transmission"
         - "software-properties-common"
+
+    - name: Install packages (Debian)
+      when: ansible_distribution == "Debian"
+      become: true
+      package:
+        state: present
+        name: "apt-listbugs"
 
     - name: Install packages (Archlinux-based)
       when: ansible_os_family == "Archlinux"
