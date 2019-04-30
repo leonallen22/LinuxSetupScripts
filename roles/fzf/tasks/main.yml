@@ -1,13 +1,16 @@
-- name: Create fzf directory
-  file:
-    path: "~/GitHub/.fzf"
-    state: directory
+- name: Download fzf repo (Release 0.18.0)
+  get_url:
+    url: "https://github.com/junegunn/fzf/archive/0.18.0.tar.gz"
+    dest: "/tmp"
+    checksum: "sha256:5406d181785ea17b007544082b972ae004b62fb19cdb41f25e265ea3cc8c2d9d"
 
-- name: Clone fzf
-  git:
-    depth: 1
-    dest: "~/GitHub/.fzf"
-    repo: "https://github.com/junegunn/fzf.git"
+- name: Uncompress fzf source
+  become: true
+  unarchive:
+    src: "/tmp/fzf-0.18.0.tar.gz"
+    dest: "/opt/"
+    creates: "/opt/fzf-0.18.0/"
 
 - name: Build & install the thing
-  shell: "yes | ~/GitHub/.fzf/install"
+  become: true
+  shell: "yes | /opt/fzf-0.18.0/install"
