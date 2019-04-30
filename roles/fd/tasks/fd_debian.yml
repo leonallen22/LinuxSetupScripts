@@ -3,7 +3,7 @@
   get_url:
     url: "https://github.com/sharkdp/fd/releases/download/v7.3.0/fd_7.3.0_amd64.deb"
     dest: "~/Downloads/"
-    checksum: "sha256sum:43e4a1d4b08821071f9ecd9a8076ba8904b620bb4191e67b5b89b4abe302f314"
+    checksum: "sha256:43e4a1d4b08821071f9ecd9a8076ba8904b620bb4191e67b5b89b4abe302f314"
 
 - name: Install fd, find replacement (Debian)
   when: ansible_os_family == "Debian"
