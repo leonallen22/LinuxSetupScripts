@@ -7,5 +7,5 @@
     packages:
     - "openvpn"
     - "resolvconf"
-    - "network-manger-openvpn"
+    - "network-manager-openvpn"
     - "network-manager-openvpn-gnome"

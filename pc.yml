@@ -128,6 +128,10 @@
       include_role: 
         name: steam
 
+    - name: Install ProtonVPN
+      include_role: 
+        name: protonvpn
+
     - name: Uninstall and remove unneeded packages from cache
       when: ansible_os_family == "Debian"
       become: true
