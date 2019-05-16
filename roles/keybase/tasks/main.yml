@@ -1,0 +1,3 @@
+- name: Install Keybase
+  when: ansible_os_family == "Debian"
+  include: keybase_debian.yml

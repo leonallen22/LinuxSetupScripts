@@ -120,6 +120,10 @@
       include_role: 
         name: yubikey
 
+    - name: Install Yubikey Software
+      include_role: 
+        name: keybase
+
     - name: Uninstall and remove unneeded packages from cache
       when: ansible_os_family == "Debian"
       become: true
