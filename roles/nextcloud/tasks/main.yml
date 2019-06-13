@@ -5,3 +5,7 @@
 - name: Install Nextcloud (Solus)
   when: ansible_os_family == "Solus"
   include: nextcloud_solus.yml
+
+- name: Install Nextcloud (Arch)
+  when: ansible_os_family == "Archlinux"
+  include: nextcloud_arch.yml
