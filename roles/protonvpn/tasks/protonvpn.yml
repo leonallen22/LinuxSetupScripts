@@ -7,5 +7,17 @@
     packages:
     - "openvpn"
     - "resolvconf"
-    - "network-manager-openvpn"
-    - "network-manager-openvpn-gnome"
+
+- name: Install network manager package (non-Arch)
+  when: ansible_os_family != "Archlinux"
+  become: true
+  package:
+    state: present
+    name: "network-manager-openvpn"
+
+- name: Install convenience package for Gnome systems
+  when: ansible_env['XDG_CURRENT_DESKTOP'] == "GNOME"
+  become: true
+  package:
+    state: present
+    name: "network-manager-openvpn-gnome"

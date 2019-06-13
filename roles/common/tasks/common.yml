@@ -21,9 +21,5 @@
     - "openconnect"
     - "keepassxc"
     - "tor"
-    - "numix-gtk-theme"
-    - "numix-icon-theme"
     - "dnsmasq"
     - "guake"
-
-
