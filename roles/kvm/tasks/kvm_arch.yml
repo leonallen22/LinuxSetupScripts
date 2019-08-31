@@ -3,13 +3,12 @@
   become: true
   package:
     state: present
-    name: "{{ packages }}"
-  vars:
-    packages:
-      - "qemu"
-      - "bridge-utils"
-      - "virt-viewer"
-      - "virt-manager"
+    name: "{{ item }}"
+  with_items:
+    - "qemu"
+    - "bridge-utils"
+    - "virt-viewer"
+    - "virt-manager"
 
 - name: Add user to libvirt group
   become: true

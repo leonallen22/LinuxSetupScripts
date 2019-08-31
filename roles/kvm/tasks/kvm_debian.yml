@@ -3,15 +3,14 @@
   become: true
   package:
     state: present
-    name: "{{ packages }}"
-  vars:
-    packages:
-      - "qemu-kvm"
-      - "libvirt-clients"
-      - "libvirt-daemon-system"
-      - "bridge-utils"
-      - "virt-viewer"
-      - "virt-manager"
+    name: "{{ item }}"
+  with_items:
+    - "qemu-kvm"
+    - "libvirt-clients"
+    - "libvirt-daemon-system"
+    - "bridge-utils"
+    - "virt-viewer"
+    - "virt-manager"
 
 - name: Add user to libvirt group
   become: true
