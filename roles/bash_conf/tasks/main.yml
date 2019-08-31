@@ -3,7 +3,7 @@
     create: true
     path: "~/.bashrc"
     line: "{{ item }}"
-  loop:
+  with_items:
     - "export PATH=$PATH:/sbin"
     - "export EDITOR=vim"
     - "export VISUAL=vim"
