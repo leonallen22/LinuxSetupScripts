@@ -38,8 +38,9 @@
       become: true
       package:
         state: present
-        name: "{{ item }}"
-      with_items:
+        name: "{{ packages }}"
+      vars:
+        packages:
         - "apt-transport-https"
         - "dconf-editor"
         - "icdiff"
@@ -61,8 +62,9 @@
       become: true
       package:
         state: present
-        name: "{{ items }}"
-      with_items:
+        name: "{{ packages }}"
+      vars:
+        packages:
         - "yay"
         - "package-query"
         - "arch-audit"
@@ -84,7 +86,6 @@
       when: ansible_env['XDG_CURRENT_DESKTOP'] == "GNOME"
       include_role: 
         name: gnome_addtl
-
   roles:
     - common
     - firefox
