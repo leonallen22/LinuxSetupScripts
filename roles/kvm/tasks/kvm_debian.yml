@@ -3,7 +3,7 @@
   become: true
   package:
     state: present
-    name: "{{ packages }}"
+    name: "{{ item }}"
   with_items:
     - "qemu-kvm"
     - "libvirt-clients"
