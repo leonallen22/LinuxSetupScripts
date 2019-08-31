@@ -99,6 +99,7 @@
     - kvm
     - nextcloud
     - yubikey
+    - keybase
     - steam
     - protonvpn
     - bash_conf

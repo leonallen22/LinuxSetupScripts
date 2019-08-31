@@ -1,7 +1,6 @@
 - name: Install common packages
   become: true
-  command: "eopkg install {{ item }} --yes-all"
-  with_items: "{{ packages }}"
+  command: "eopkg install {{ packages }} --yes-all"
   vars:
     packages:
     - "coreutils"
