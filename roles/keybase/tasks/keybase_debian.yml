@@ -10,4 +10,4 @@
 
 - name: Finish installation
   become: true
-  shell: 'apt install -f'
+  shell: 'apt install -f -y'

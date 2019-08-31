@@ -11,4 +11,4 @@
 
 - name: Resolve install issues
   become: true
-  shell: 'apt install -f'
+  shell: 'apt install -f -y'
