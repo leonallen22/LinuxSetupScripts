@@ -21,28 +21,25 @@
       become: true
       command: "eopkg upgrade --yes-all"
 
-    - name: Install common packages
-      include_role:
-        name: common
-
-    - name: Install Desktop Environment stuff
-      when: ansible_env['XDG_CURRENT_DESKTOP'] == "MATE"
-      include_role: 
-        name: mate_addtl
-    
-    - name: Install Desktop Environment stuff
-      when: ansible_env['XDG_CURRENT_DESKTOP'] == "GNOME"
-      include_role: 
-        name: gnome_addtl
+    - name: Configure aliases
+      lineinfile:
+        create: true
+        path: "~/.bash_aliases"
+        line: "{{ item }}"
+      with_items:
+        - "alias diff='icdiff'"
+        - "alias top='htop'"
+        - "alias du='ncdu'"
+        - "alias grep='echo you should use ack instead'"
+        - "alias watch='echo you should use entr instead'"
 
     - name: Install packages (Debian-based)
       when: ansible_os_family == "Debian"
       become: true
       package:
         state: present
-        name: "{{ packages }}"
-      vars:
-        packages:
+        name: "{{ item }}"
+      with_items:
         - "apt-transport-https"
         - "dconf-editor"
         - "icdiff"
@@ -64,73 +61,12 @@
       become: true
       package:
         state: present
-        name: "{{ packages }}"
-      vars:
-        packages:
+        name: "{{ items }}"
+      with_items:
         - "yay"
         - "package-query"
         - "arch-audit"
         - "transmission-gtk"
-
-    - name: Install Firefox
-      include_role: 
-        name: firefox
-
-    - name: Install git
-      include_role: 
-        name: git
-
-    - name: Install vim
-      include_role: 
-        name: vim
-
-    - name: Install tmux
-      include_role: 
-        name: tmux
-
-    - name: Install bat
-      include_role: 
-        name: bat
-
-    - name: Install fd
-      include_role: 
-        name: fd
-
-    - name: Install fzf
-      include_role: 
-        name: fzf
-
-    - name: Install Tor browser
-      include_role: 
-        name: tor_browser
-
-    - name: Install Docker
-      include_role: 
-        name: docker
-
-    - name: Install KVM
-      include_role: 
-        name: kvm
-
-    - name: Install Nextcloud
-      include_role: 
-        name: nextcloud
-
-    - name: Install Yubikey Software
-      include_role: 
-        name: yubikey
-
-    - name: Install Keybase
-      include_role: 
-        name: keybase
-
-    - name: Install Steam
-      include_role: 
-        name: steam
-
-    - name: Install ProtonVPN
-      include_role: 
-        name: protonvpn
 
     - name: Uninstall and remove unneeded packages from cache
       when: ansible_os_family == "Debian"
@@ -139,18 +75,30 @@
         autoremove: true
         autoclean: true
 
-    - name: Configure .bashrc
+    - name: Install Desktop Environment stuff
+      when: ansible_env['XDG_CURRENT_DESKTOP'] == "MATE"
       include_role: 
-        name: bash_conf
+        name: mate_addtl
+    
+    - name: Install Desktop Environment stuff
+      when: ansible_env['XDG_CURRENT_DESKTOP'] == "GNOME"
+      include_role: 
+        name: gnome_addtl
 
-    - name: Configure aliases
-      lineinfile:
-        create: true
-        path: "~/.bash_aliases"
-        line: "{{ item }}"
-      loop:
-        - "alias diff='icdiff'"
-        - "alias top='htop'"
-        - "alias du='ncdu'"
-        - "alias grep='echo you should use ack instead'"
-        - "alias watch='echo you should use entr instead'"
+  roles:
+    - common
+    - firefox
+    - git
+    - vim
+    - tmux
+    - bat
+    - fd
+    - fzf
+    - tor_browser
+    - docker
+    - kvm
+    - nextcloud
+    - yubikey
+    - steam
+    - protonvpn
+    - bash_conf
