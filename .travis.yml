@@ -1,13 +1,13 @@
 ---
 sudo: required
 env:
-  - repo: geerlinguy
+  - repo: geerlingguy
     distro_name: ubuntu
     distro_tag: 16.04
-  - repo: geerlinguy
+  - repo: geerlingguy
     distro_name: debian
     distro_tag: 8
-  - repo: geerlinguy
+  - repo: geerlingguy
     distro_name: centos
     distro_tag: 7
 services:
