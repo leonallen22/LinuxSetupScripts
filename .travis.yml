@@ -13,5 +13,5 @@ before_install:
   - 'docker pull ${repo}/docker-${distro_name}-ansible'
 script:
   - container_id=$(mktemp)
-  - 'docker run --detach --volume="${PWD}/roles/vim":/etc/ansible/roles/vim:ro --entrypoint "/bin/sh" -it "${repo}/docker-${distro_name}-ansible" > "${container_id}"'
-  - 'docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/roles/vim/tests/main.yml --syntax-check'
+  - 'docker run --detach --volume="${PWD}/roles/vim":/etc/ansible/roles/role_under_test:ro --entrypoint "/bin/sh" -it "${repo}/docker-${distro_name}-ansible" > "${container_id}"'
+  - 'docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/roles/role_under_test/tests/main.yml --syntax-check'
