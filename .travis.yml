@@ -1,0 +1,14 @@
+---
+sudo: required
+env:
+  - distro: ubuntu
+    tag: 16.04
+  - distro: debian
+    tag: 8
+  - distro: centos
+    tag: 7
+services:
+  - docker
+before_install:
+  - 'docker pull ${distro}:${distro.tag}'
+script:
