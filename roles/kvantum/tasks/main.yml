@@ -1,0 +1,11 @@
+---
+- name: Install Kvantum
+  package:
+    name: "qt5-style-kvantum"
+
+- name: Override QT style to use Kvantum
+  become: true
+  lineinfile:
+    path: '/etc/environment'
+    regex: 'QT_STYLE_OVERRIDE="kvantum"'
+    line: 'QT_STYLE_OVERRIDE="kvantum"'
