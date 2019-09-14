@@ -1,0 +1,13 @@
+- name: Add System76 PPA
+  become: true
+  when: ansible_os_family == "Debian"
+  apt_repository:
+    state: present
+    repo: "ppa:system76-dev/stable"
+
+- name: Install System76 Driver
+  become: true
+  when: ansible_os_family == "Debian"
+  package:
+    state: present
+    name: "system76-driver"
