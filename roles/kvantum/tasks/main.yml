@@ -1,5 +1,6 @@
 ---
 - name: Install Kvantum
+  become: true
   package:
     state: present
     name: "qt5-style-kvantum"
