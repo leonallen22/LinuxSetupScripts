@@ -14,6 +14,7 @@
     - "pandoc"
     - "wireshark-qt"
     - "iperf"
+    - "nmap"
     - "gparted"
     - "xclip"
     - "clamtk"
