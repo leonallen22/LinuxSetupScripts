@@ -30,7 +30,7 @@
         - "alias diff='icdiff'"
         - "alias top='htop'"
         - "alias du='ncdu'"
-        - "alias grep='echo you should use ack instead'"
+        - "alias grep='echo you should use rg instead'"
         - "alias watch='echo you should use entr instead'"
 
     - name: Install packages (Debian-based)
@@ -104,3 +104,4 @@
     - steam
     - protonvpn
     - bash_conf
+    - kvantum

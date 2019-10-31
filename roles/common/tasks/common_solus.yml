@@ -6,7 +6,7 @@
     - "coreutils"
     - "htop"
     - "ncdu"
-    - "ack"
+    - "ripgrep"
     - "curl"
     - "pandoc"
     - "wireshark"
