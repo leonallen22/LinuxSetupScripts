@@ -1,0 +1,92 @@
+- name: Install NeoVim
+  include: vim.yml
+
+- name: Get NeoVim theme
+  git:
+    dest: "~/GitHub/vim-sublime-monokai"
+    repo: "https://github.com/ErichDonGubler/vim-sublime-monokai.git"
+
+- name: Create .vim directory
+  file:
+    path: "~/.vim/colors/"
+    state: directory
+
+- name: Install NeoVim theme
+  copy:
+    src: "~/GitHub/vim-sublime-monokai/colors/sublimemonokai.vim"
+    dest: "~/.vim/colors/sublimemonokai.vim"
+
+- name: Set up ~/.config/nvim/init.vim
+  lineinfile:
+    create: true
+    path: "~/.vimrc"
+    line: "{{ item }}"
+  with_items:
+    - "set encoding=utf-8          \" The encoding displayed"
+    - "set fileencoding=utf-8      \" The encoding written to file"
+    - "syntax on                   \" Enable syntax highlight"
+    - "set ttyfast                 \" Faster redrawing"
+    - "set lazyredraw              \" Only redraw when necessary"
+    - "set cursorline             \" Find the current line quickly."
+    - "set expandtab"
+    - "set tabstop=2"
+    - "set softtabstop=2"
+    - "set shiftwidth=2"
+    - "set smartindent"
+    - "set autoindent"
+    - "set hidden"
+    - "set history=100"
+    - "set cursorline"
+    - "set showmatch"
+    - "set showmode"
+    - "set hlsearch"
+    - "set foldenable"
+    - "set foldmethod=indent"
+    - "set foldlevel=50"
+    - "set nobackup"
+    - "syntax on"
+    - "filetype indent on"
+    - "nnoremap j gj"
+    - "nnoremap k gk"
+    - "nnoremap <space> za"
+    - "nnoremap <Leader><Leader> :e#<CR>"
+    - "colorscheme sublimemonokai"
+    - "autocmd BufWritePost Jenkinsfile execute '!validate-jenkinsfile <afile> || true'"
+    - "autocmd BufWritePost *pipeline.groovy execute '!validate-jenkinsfile <afile> || true'"
+    - "command VJ !validate-jenkinsfile % || true"
+    - "autocmd Filetype Jenkinsfile setlocal ts=2 sw=2 sts=0 expandtab"
+    - "autocmd Filetype groovy setlocal ts=2 sw=2 sts=0 expandtab"
+    - "autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 fileformat=unix"
+    - "call plug#begin()"
+    - "Plug 'neomake/neomake'"
+    - "Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }"
+    - "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }"
+    - "Plug 'junegunn/fzf.vim'"
+    - "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }"
+    - "Plug 'w0rp/ale'"
+    - "call plug#end()"
+    - "call neomake#configure#automake('w')"
+    - "let NERDTreeShowHidden=1"
+    - "map <silent> <C-n> :NERDTreeToggle<CR>"
+    - "let g:NERDTreeQuitOnOpen=1"
+    - "let g:ale_lint_on_text_changed = 'always'"
+    - "let g:ale_lint_delay = 1000"
+    - "set t_Co=256"
+    - "set nowrap"
+    - "set relativenumber"
+    - "set number"
+    - "set laststatus=2"
+    - "set invlist"
+    - "set list"
+    - "set listchars=tab:¦\ ,eol:¬,trail:⋅,precedes:❮"
+    - "set guioptions-=r"
+    - "set guioptions-=R"
+    - "set guioptions-=l"
+    - "set guioptions-=L"
+    - "nnoremap <C-y> +y"
+    - "vnoremap <C-y> +y"
+    - "nnoremap <C-p> +P"
+    - "vnoremap <C-p> +P"
+    - "set clipboard=unnamed"
+    - "set backupdir=/tmp//"
+    - "set directory=/tmp//"
