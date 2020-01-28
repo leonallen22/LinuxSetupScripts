@@ -1,0 +1,23 @@
+- name: Download Tor Browser checksum
+  get_url:
+    url: "https://dist.torproject.org/torbrowser/8.5.3/sha256sums-signed-build.txt"
+    dest: "~/Downloads/tor_browser_checksum"
+
+- name: Download Tor Browser
+  get_url:
+    url: "https://www.torproject.org/dist/torbrowser/8.5.3/tor-browser-linux64-8.5.3_en-US.tar.xz"
+    dest: "~/Downloads/tor-browser.tar.xz"
+    checksum: 'sha256:{{ tor_browser_checksums[0].split()[0] }}'
+  vars:
+    tor_browser_checksums: '{{ lookup("file", "~/Downloads/tor_browser_checksum").splitlines() | select("match", ".*tor-browser-linux64-.*_en-US.tar.xz$") | list }}'
+
+- name: Decompress Tor Browser
+  unarchive:
+    src: "~/Downloads/tor-browser.tar.xz"
+    dest: "~/"
+    creates: "~/tor-browser_en-US"
+
+- name: Register as desktop app
+  shell: "./start-tor-browser.desktop --register-app"
+  args:
+    chdir: "~/tor-browser_en-US"
