@@ -3,3 +3,59 @@
   package:
     state: present
     name: "fish"
+
+- name: Download Starship Shell prompt install script
+  get_url:
+    url: "https://starship.rs/install.sh"
+    dest: "/tmp/install.sh"
+
+- name: Install Starship
+  shell: "/tmp/install.sh"
+
+- name: Set up ~/.config/starship.toml
+  lineinfile:
+    create: true
+    path: "~/.config/starship.toml"
+    line: "{{ item }}"
+  with_items:
+    - "[character]" "
+    - "symbol = \"➜\""
+    - "[cmd_duration]"
+    - "style = \"yellow\""
+    - "[directory]"
+    - "style = \"cyan\""
+    - "[git_branch]"
+    - "style = \"purple\""
+    - "[git_commit]"
+    - "style = \"green\""
+    - "[git_state]"
+    - "style = \"yellow\""
+    - "[git_status]"
+    - "style = \"red\""
+    - "[golang]"
+    - "style = \"cyan\""
+    - "[hostname]"
+    - "style = \"dimmed green\""
+    - "[jobs]"
+    - "style = \"blue\""
+    - "[terraform]"
+    - "style = \"105\""
+    - "[username]"
+    - "style_user = \"yellow\""
+
+- name: Set up ~/.config/fish/config.fish
+  lineinfile:
+    create: true
+    path: "~/.config/fish/config.fish"
+    line: "{{ item }}"
+  with_items:
+    - "starship init fish | source"
+    - "abbr -a -- - 'cd -'"
+    - "alias cat='bat'"
+    - "alias find='echo you should use fd instead'"
+    - "alias diff='icdiff'"
+    - "alias top='htop'"
+    - "alias du='ncdu'"
+    - "alias grep='echo you should use rg instead'"
+    - "alias watch='echo you should use entr instead'"
+    - "alias vim='nvim'"
