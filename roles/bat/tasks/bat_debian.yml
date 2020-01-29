@@ -1,13 +1,13 @@
 - name: Download bat, cat replacement (Debian-based)
   when: ansible_os_family == "Debian"
   get_url:
-    url: "https://github.com/sharkdp/bat/releases/download/v0.10.0/bat_0.10.0_amd64.deb"
+    url: "https://github.com/sharkdp/bat/releases/download/v0.12.1/bat_0.12.1_amd64.deb"
     dest: "/tmp"
-    checksum: "sha256:4323185b3d4afeae503a3e7305d7e50cedae52b3cde47a9a21a14d3c60b419f0"
+    checksum: "sha256:c02ca23add052009cde64746ff86e6da5765a89fd7494d380800250310180b23"
 
 - name: Install bat (Debian)
   when: ansible_os_family == "Debian"
   become: true
   package:
     state: present
-    deb: "/tmp/bat_0.10.0_amd64.deb"
+    deb: "/tmp/bat_0.12.1_amd64.deb"
