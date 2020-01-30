@@ -1,13 +1,22 @@
+- name: Check for Keybase install
+  shell: "which keybase"
+  register: keybase_install
+  ignore_errors: true
+  changed_when: false
+
 - name: Download Keybase .deb
+  when: keybase_install.rc
   get_url:
     url: "https://prerelease.keybase.io/keybase_amd64.deb"
     dest: "/tmp/keybase.deb"
 
 - name: Start .deb install
+  when: keybase_install.rc
   become: true
   shell: 'dpkg -i /tmp/keybase.deb'
   ignore_errors: true
 
 - name: Finish installation
+  when: keybase_install.rc
   become: true
   shell: 'apt install -f -y'
