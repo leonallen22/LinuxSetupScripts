@@ -10,7 +10,7 @@ Graphics Driver Package: nvidia-driver
 ## TODO
 - /etc/default/grub GRUB_TIMEOUT=2 && update-grub
 - Test Firefox config
-- Enable 32-bit support (Debian)
+- Add install for numix-icon-theme and fonts-firacode (available on the Ubuntu family of distros, not sure about others)
 
 ## Credit
 vim theme: https://github.com/ErichDonGubler/vim-sublime-monokai
