@@ -67,3 +67,6 @@
     - "alias grep='echo you should use rg instead'"
     - "alias watch='echo you should use entr instead'"
     - "alias vim='nvim'"
+    - "set PATH $PATH $HOME/.local/bin"
+    - "set EDITOR nvim"
+    - "set VISUAL nvim"
