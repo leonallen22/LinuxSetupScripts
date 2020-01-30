@@ -1,14 +1,23 @@
+- name: Check for Steam install
+  shell: "which steam"
+  register: steam_install
+  ignore_errors: true
+  changed_when: false
+
 - name: Download Steam
+  when: steam_install.rc
   get_url:
     url: "https://steamcdn-a.akamaihd.net/client/installer/steam.deb"
     dest: "/tmp/steam.deb"
     checksum: 'sha256:5e7d3f1cb1de847f31152998bdc8137855a1a0f7b0dc099db6a7f4d7e33fd911'
 
 - name: Install Steam
+  when: steam_install.rc
   become: true
   shell: 'dpkg -i /tmp/steam.deb'
   ignore_errors: true
 
 - name: Resolve install issues
+  when: steam_install.rc
   become: true
   shell: 'apt install -f -y'

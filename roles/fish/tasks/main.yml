@@ -16,6 +16,7 @@
     dest: "/tmp/install.sh"
 
 - name: Install Starship
+  become: true
   shell: "bash /tmp/install.sh -y"
   ignore_errors: true
 

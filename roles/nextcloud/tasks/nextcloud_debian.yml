@@ -11,7 +11,7 @@
   ignore_errors: true
   apt_repository:
     state: present
-    repo: "deb http://ppa.launchpad.net/nextcloud-devs/client/ubuntu bionic main"
+    repo: "deb http://ppa.launchpad.net/nextcloud-devs/client/ubuntu eoan main"
 
 - name: Install Nextcloud
   become: true
