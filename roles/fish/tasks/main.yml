@@ -4,13 +4,20 @@
     state: present
     name: "fish"
 
+- name: Switch default shell to fish
+  become: true
+  user:
+    name: "{{ ansible_user }}"
+    shell: "/usr/bin/fish"
+
 - name: Download Starship Shell prompt install script
   get_url:
     url: "https://starship.rs/install.sh"
     dest: "/tmp/install.sh"
 
 - name: Install Starship
-  shell: "/tmp/install.sh"
+  shell: "bash /tmp/install.sh -y"
+  ignore_errors: true
 
 - name: Set up ~/.config/starship.toml
   lineinfile:
@@ -18,7 +25,7 @@
     path: "~/.config/starship.toml"
     line: "{{ item }}"
   with_items:
-    - "[character]" "
+    - "[character]"
     - "symbol = \"➜\""
     - "[cmd_duration]"
     - "style = \"yellow\""

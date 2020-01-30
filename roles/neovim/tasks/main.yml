@@ -1,5 +1,7 @@
 - name: Install NeoVim
-  include: vim.yml
+  apt:
+    state: "present"
+    name: "neovim"
 
 - name: Get NeoVim theme
   git:
