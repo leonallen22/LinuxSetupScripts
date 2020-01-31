@@ -1,0 +1,24 @@
+[character]
+symbol = "➜"
+[cmd_duration]
+style = "yellow"
+[directory]
+style = "cyan"
+[git_branch]
+style = "purple"
+[git_commit]
+style = "green"
+[git_state]
+style = "yellow"
+[git_status]
+style = "red"
+[golang]
+style = "cyan"
+[hostname]
+style = "dimmed green"
+[jobs]
+style = "blue"
+[terraform]
+style = "105"
+[username]
+style_user = "yellow"

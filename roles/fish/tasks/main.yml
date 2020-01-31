@@ -21,35 +21,9 @@
   ignore_errors: true
 
 - name: Set up ~/.config/starship.toml
-  lineinfile:
-    create: true
-    path: "~/.config/starship.toml"
-    line: "{{ item }}"
-  with_items:
-    - "[character]"
-    - "symbol = \"➜\""
-    - "[cmd_duration]"
-    - "style = \"yellow\""
-    - "[directory]"
-    - "style = \"cyan\""
-    - "[git_branch]"
-    - "style = \"purple\""
-    - "[git_commit]"
-    - "style = \"green\""
-    - "[git_state]"
-    - "style = \"yellow\""
-    - "[git_status]"
-    - "style = \"red\""
-    - "[golang]"
-    - "style = \"cyan\""
-    - "[hostname]"
-    - "style = \"dimmed green\""
-    - "[jobs]"
-    - "style = \"blue\""
-    - "[terraform]"
-    - "style = \"105\""
-    - "[username]"
-    - "style_user = \"yellow\""
+  copy:
+    src: "starship.toml"
+    dest: "~/.config/starship.toml"
 
 - name: Set up ~/.config/fish/config.fish
   lineinfile:
