@@ -82,6 +82,7 @@
     - vim_plug
     - neovim
     - fish
+    - jq
     - go
     - tmux
     - bat
