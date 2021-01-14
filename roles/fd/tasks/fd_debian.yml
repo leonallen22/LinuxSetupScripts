@@ -1,7 +1,7 @@
 - name: Download fd, find replacement (Debian-based)
   when: ansible_os_family == "Debian"
   get_url:
-    url: "https://github.com/sharkdp/fd/releases/download/v7.3.0/fd_7.3.0_amd64.deb"
+    url: "https://github.com/sharkdp/fd/releases/download/v8.2.1/fd_8.2.1_amd64.deb"
     dest: "/tmp"
     checksum: "sha256:43e4a1d4b08821071f9ecd9a8076ba8904b620bb4191e67b5b89b4abe302f314"
 
@@ -10,4 +10,4 @@
   become: true
   package:
     state: present
-    deb: "/tmp/fd_7.3.0_amd64.deb"
+    deb: "/tmp/fd_8.2.1_amd64.deb"
