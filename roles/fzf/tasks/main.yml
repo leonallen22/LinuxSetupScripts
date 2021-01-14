@@ -1,16 +1,16 @@
-- name: Download fzf repo (Release 0.18.0)
+- name: Download fzf repo (Release 0.25.0)
   get_url:
-    url: "https://github.com/junegunn/fzf/archive/0.18.0.tar.gz"
+    url: "https://github.com/junegunn/fzf/archive/0.25.0.tar.gz"
     dest: "/tmp"
     checksum: "sha256:5406d181785ea17b007544082b972ae004b62fb19cdb41f25e265ea3cc8c2d9d"
 
 - name: Uncompress fzf source
   become: true
   unarchive:
-    src: "/tmp/fzf-0.18.0.tar.gz"
+    src: "/tmp/fzf-0.25.0.tar.gz"
     dest: "/opt/"
-    creates: "/opt/fzf-0.18.0/"
+    creates: "/opt/fzf-0.25.0/"
 
 - name: Build & install the thing
   become: true
-  shell: "yes | /opt/fzf-0.18.0/install"
+  shell: "yes | /opt/fzf-0.25.0/install"
