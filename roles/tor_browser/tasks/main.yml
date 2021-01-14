@@ -1,11 +1,11 @@
 - name: Download Tor Browser checksum
   get_url:
-    url: "https://dist.torproject.org/torbrowser/9.0.4/sha256sums-signed-build.txt"
+    url: "https://dist.torproject.org/torbrowser/10.0.8/sha256sums-signed-build.txt"
     dest: "~/Downloads/tor_browser_checksum"
 
 - name: Download Tor Browser
   get_url:
-    url: "https://www.torproject.org/dist/torbrowser/9.0.4/tor-browser-linux64-9.0.4_en-US.tar.xz"
+    url: "https://www.torproject.org/dist/torbrowser/10.0.8/tor-browser-linux64-10.0.8_en-US.tar.xz"
     dest: "~/Downloads/tor-browser.tar.xz"
     checksum: 'sha256:{{ tor_browser_checksums[0].split()[0] }}'
   vars:
