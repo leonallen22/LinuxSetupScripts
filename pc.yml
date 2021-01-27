@@ -1,5 +1,5 @@
 ---
-- hosts: localhost 
+- hosts: localhost
   tasks:
     - name: Upgrade packages to latest version (Debian-based)
       when: ansible_os_family == "Debian"
