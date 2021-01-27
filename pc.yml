@@ -67,12 +67,12 @@
 
     - name: Install Desktop Environment stuff
       when: ansible_env['XDG_CURRENT_DESKTOP'] == "MATE"
-      include_role: 
+      include_role:
         name: mate_addtl
-    
+
     - name: Install Desktop Environment stuff
       when: ansible_env['XDG_CURRENT_DESKTOP'] == "GNOME"
-      include_role: 
+      include_role:
         name: gnome_addtl
   roles:
     - common
